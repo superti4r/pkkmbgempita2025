@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+:root {
+  --background: 255 255 255;
+  --foreground: 23 23 23;
+
+  --muted: 243 244 246;
+  --muted-foreground: 107 114 128;
+
+  --primary: 34 197 94;
+  --primary-foreground: 255 255 255;
+
+  --secondary: 56 189 248;
+  --secondary-foreground: 255 255 255;
+}
+
+.dark {
+  --background: 10 10 10;
+  --foreground: 237 237 237;
+
+  --muted: 24 24 27;
+  --muted-foreground: 161 161 170;
+
+  --primary: 74 222 128;
+  --primary-foreground: 10 10 10;
+
+  --secondary: 96 165 250;
+  --secondary-foreground: 10 10 10;
+}
+
+@theme inline {
+  --color-background: rgb(var(--background));
+  --color-foreground: rgb(var(--foreground));
+  --color-muted: rgb(var(--muted));
+  --color-muted-foreground: rgb(var(--muted-foreground));
+  --color-primary: rgb(var(--primary));
+  --color-primary-foreground: rgb(var(--primary-foreground));
+  --color-secondary: rgb(var(--secondary));
+  --color-secondary-foreground: rgb(var(--secondary-foreground));
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+}
+
+.beam-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -10;
+  background: radial-gradient(circle at top,
+      rgb(var(--secondary) / 0.35) 0%,
+      rgb(var(--primary) / 0.25) 40%,
+      transparent 80%);
+  filter: blur(120px);
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}
