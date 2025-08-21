@@ -8,12 +8,12 @@ import { motion } from "framer-motion";
 type Props = {
   label: string;
   href: string;
-  icon?: keyof typeof Icons;
+  icon?: string;
   badge?: string;
 };
 
 export default function LinkCard({ label, href, icon, badge }: Props) {
-  const LucideIcon = icon ? Icons[icon] : Icons.Link;
+  const LucideIcon = (icon && (Icons as any)[icon]) || Icons.Link;
 
   return (
     <motion.div
